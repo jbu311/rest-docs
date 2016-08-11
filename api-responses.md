@@ -174,7 +174,8 @@ HTTP/1.1 200 Created
 
 // Error
 HTTP/1.1 422 Unprocesable Entity
-"error": {
+{
+  "error": {
     "message": "Validation Failed",
     "code": <Custom code>,
     "details": [
