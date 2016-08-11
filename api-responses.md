@@ -105,6 +105,10 @@ HTTP/1.1 404 Not Found
 
 ```javascript
 POST /api/v1/subject_of_interests
+{
+  "description": "updated desc",
+  "name": "subject of interest"
+}
 
 // Success
 HTTP/1.1 201 Created
