@@ -138,7 +138,7 @@ HTTP/1.1 422 Unprocesable Entity
   
 ```
 
-## Read a resource
+### Read a resource
 
 ```javascript
 GET /api/v1/subject_of_interests/:id
@@ -209,7 +209,7 @@ HTTP/1.1 404 Not Found
 }
 ```
 
-## Delete a resource
+### Delete a resource
 
 ```javascript
 DELETE /api/v1/subject_of_interests/:id
