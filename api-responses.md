@@ -6,7 +6,6 @@
 
 ```javascript
 HTTP/1.1 400 Bad Request
-
 {
   "error": {
     "mesage":  "Problems parsing JSON"
@@ -20,7 +19,6 @@ HTTP/1.1 400 Bad Request
 
 ```javascript
 HTTP/1.1 422 Unprocessable Entity
-
 {
   "error": {
     "message": "Validation Failed",
@@ -41,7 +39,6 @@ HTTP/1.1 422 Unprocessable Entity
 
 ```javascript
 HTTP/1.1 404 Not Found
-
 {
   "error": {
     "message": "Resource not found",
@@ -55,7 +52,6 @@ HTTP/1.1 404 Not Found
 
 ```javascript
 HTTP/1.1 401 Unauthorized
-
 {
   "error": {
     "message": "Bad credentials",
@@ -71,7 +67,6 @@ HTTP/1.1 401 Unauthorized
 GET /api/v1/subject_of_interests?offset=0&limit=20
 
 HTTP/1.1 200 OK
-
 {
   "meta": {
     "href": <String - the URL of the current request>
@@ -93,7 +88,6 @@ HTTP/1.1 200 OK
 GET /api/v1/subject_of_interests?offset=1000&limit=20
 
 HTTP/1.1 404 Not Found
-
 {
   "error" {
     "mesasge": "Page not found",
@@ -162,7 +156,6 @@ HTTP/1.1 404 Not Found
     "timestamp": 1470904557245
   }
 }
-
 ```
 
 ### Update a resource entirely
@@ -206,6 +199,24 @@ HTTP/1.1 404 Not Found
 }
 ```
 
+## Delete a resource
+
+```javascript
+DELETE /api/v1/subject_of_interests/:id
+
+// Success
+HTTP/1.1 204 No Content
+
+// Error
+HTTP/1.1 404 Not Found
+{
+  "error": {
+    "message": "Resource not found",
+    "code": <Custom code>,
+    "timestamp": 1470904557245
+  }
+}
+```
 
 
 
