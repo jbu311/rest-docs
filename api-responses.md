@@ -8,7 +8,7 @@
 HTTP/1.1 400 Bad Request
 
 {
-  "message":  "Problems parsing JSON",
+  "error":  "Problems parsing JSON",
   "code": <Custom code>,
   "timestamp": 1470904557245
 }
@@ -20,9 +20,9 @@ HTTP/1.1 400 Bad Request
 HTTP/1.1 422 Unprocessable Entity
 
 {
-  "message": "Validation Failed",
+  "error": "Validation Failed",
   "code": <Custom code>,
-  "errors": [
+  "message": [
     {
       "resource": "SubjectOfInterest",
       "field": "description",
@@ -39,7 +39,7 @@ HTTP/1.1 422 Unprocessable Entity
 HTTP/1.1 404 Not Found
 
 {
-  "message": "Resource not found",
+  "error": "Resource not found",
   "code": <Custom code>,
   "timestamp": 1470904557245
 }
@@ -51,7 +51,7 @@ HTTP/1.1 404 Not Found
 HTTP/1.1 401 Unauthorized
 
 {
-  "message": "Bad credentials",
+  "error": "Bad credentials",
   "code": <Custom code>,
   "timestamp": 1470904557245
 }
@@ -65,13 +65,15 @@ GET /api/v1/subject_of_interests?offset=0&limit=20
 HTTP/1.1 200 OK
 
 {
-  "href": <String - the URL of the current request>,
-  "items": <An array of objects	- the requested data>,
-  "next": <String - URL to next page, null if none>,
-  "prev": <String - URL to previous page, null if none>,
-  "offset": <Integer - the request offset>,
-  "limit": <Integer - the maximum number inf the response>,
-  "total": <Integer - the total of number of items to return>
+  data: {
+    "href": <String - the URL of the current request>,
+    "items": <An array of objects	- the requested data>,
+    "next": <String - URL to next page, null if none>,
+    "prev": <String - URL to previous page, null if none>,
+    "offset": <Integer - the request offset>,
+    "limit": <Integer - the maximum number inf the response>,
+    "total": <Integer - the total of number of items to return>
+  }
 }
 ```
 
@@ -83,7 +85,7 @@ GET /api/v1/subject_of_interests?offset=1000&limit=20
 HTTP/1.1 404 Not Found
 
 {
-  "message": "Page not found",
+  "error": "Page not found",
   "code": <Custom code>,
   "timestamp": 1470904557245
 }
@@ -98,8 +100,10 @@ GET /api/v1/subject_of_interests/:id
 HTTP/1.1 200 OK
 
 {
-  "id" <UUID>,
-  "description": "RESTful API"
+  data: {
+    "id" <UUID>,
+    "description": "RESTful API"
+  }
 }
 
 ```
