@@ -52,6 +52,7 @@ HTTP/1.1 404 Not Found
 
 ```javascript
 HTTP/1.1 401 Unauthorized
+Authorization: <Token>
 {
   "error": {
     "message": "Bad credentials",
