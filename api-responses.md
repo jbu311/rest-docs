@@ -141,7 +141,7 @@ GET /api/v1/subject_of_interests/:id
 // Success
 HTTP/1.1 200 OK
 {
-  data: {
+  "data": {
     "id" <UUID>,
     "description": "RESTful API"
   }
@@ -158,7 +158,7 @@ HTTP/1.1 404 Not Found
 }
 ```
 
-### Update a resource entirely
+### Update a resource partially
 
 ```javascript
 PUT /api/v1/subject_of_interests/:id
