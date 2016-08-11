@@ -76,7 +76,7 @@ HTTP/1.1 200 OK
     "limit": <Integer - the maximum number inf the response>,
     "total": <Integer - the total of number of items to return>
   }
-  data: {
+  "data": {
     "items": <An array of objects - the requested data>
   }
 }
