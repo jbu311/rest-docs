@@ -172,7 +172,7 @@ PATCH /api/v1/subject_of_interests/:id
 
 
 // Success
-HTTP/1.1 200 Created
+HTTP/1.1 200 OK
 {
   "data": {
     "id": <UUID>
