@@ -77,7 +77,7 @@ HTTP/1.1 200 OK
     "total": <Integer - the total of number of items to return>
   }
   data: {
-     // An array of objects - the requested data 
+    "items": <An array of objects - the requested data>
   }
 }
 ```
