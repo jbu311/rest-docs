@@ -98,7 +98,7 @@ HTTP/1.1 404 Not Found
 
 ```
 
-## CRUD a single resource 
+## CRUD on a single resource 
 
 ### Create a resource
 
