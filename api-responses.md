@@ -161,7 +161,11 @@ HTTP/1.1 404 Not Found
 ### Update a resource partially
 
 ```javascript
-PUT /api/v1/subject_of_interests/:id
+PATCH /api/v1/subject_of_interests/:id
+{
+  "description": "updated desc"
+}
+
 
 // Success
 HTTP/1.1 200 Created
