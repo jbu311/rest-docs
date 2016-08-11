@@ -75,7 +75,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-### Requesting non-existing page
+### Requesting a non-existing page
 
 ```javascript
 GET /api/v1/subject_of_interests?offset=1000&limit=20
