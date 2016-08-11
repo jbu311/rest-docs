@@ -6,7 +6,6 @@
 
 ```javascript
 HTTP/1.1 400 Bad Request
-Content-Length: 35
 
 {
   "message":  "Problems parsing JSON",
