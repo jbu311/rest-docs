@@ -2,7 +2,7 @@
 
 ## Client Errors
 
-1. Sending invalid JSON  
+### Sending invalid JSON  
 
 ```javascript
 HTTP/1.1 400 Bad Request
@@ -15,7 +15,7 @@ Content-Length: 35
 
 ```
 
-2. Sending invalid fields
+### Sending invalid fields
 
 ```javascript
 HTTP/1.1 422 Unprocessable Entity
@@ -32,7 +32,7 @@ HTTP/1.1 422 Unprocessable Entity
   "timestamp": 1470904557245
 }
 ```
-3. Requesting a non-existing resource
+### Requesting a non-existing resource
 
 ```javacript
 HTTP/1.1 404 404 Not Found
@@ -41,7 +41,6 @@ HTTP/1.1 404 404 Not Found
   "timestamp": 1470904557245
 }
 ```
-
 
 ## Authentication 
 1. Authenticating with invalid credentials
