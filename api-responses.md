@@ -8,9 +8,11 @@
 HTTP/1.1 400 Bad Request
 
 {
-  "error":  "Problems parsing JSON",
-  "code": <Custom code>,
-  "timestamp": 1470904557245
+  "error": {
+    "mesage":  "Problems parsing JSON"
+    "code": <Custom code>,
+    "timestamp": 1470904557245
+  }
 }
 
 ```
@@ -20,18 +22,20 @@ HTTP/1.1 400 Bad Request
 HTTP/1.1 422 Unprocessable Entity
 
 {
-  "error": "Validation Failed",
-  "code": <Custom code>,
-  "message": [
-    {
-      "resource": "SubjectOfInterest",
-      "field": "description",
-      "violation": "size.toolarge"
-    },
+  "error": {
+    "message": "Validation Failed",
+    "code": <Custom code>,
+    "details": [
+      {
+        "resource": "SubjectOfInterest",
+        "field": "description",
+        "violation": "size.toolarge"
+      },
     ...
-  ],
-  "timestamp": 1470904557245
-}
+    ],
+    "timestamp": 1470904557245
+  }
+}  
 ```
 ### Requesting a non-existing resource
 
@@ -39,9 +43,11 @@ HTTP/1.1 422 Unprocessable Entity
 HTTP/1.1 404 Not Found
 
 {
-  "error": "Resource not found",
-  "code": <Custom code>,
-  "timestamp": 1470904557245
+  "error": {
+    "message": "Resource not found",
+    "code": <Custom code>,
+    "timestamp": 1470904557245
+  }
 }
 ```
 ## Authentication 
@@ -51,9 +57,11 @@ HTTP/1.1 404 Not Found
 HTTP/1.1 401 Unauthorized
 
 {
-  "error": "Bad credentials",
-  "code": <Custom code>,
-  "timestamp": 1470904557245
+  "error": {
+    "message": "Bad credentials",
+    "code": <Custom code>,
+    "timestamp": 1470904557245
+  }
 }
 ```
 
@@ -65,14 +73,16 @@ GET /api/v1/subject_of_interests?offset=0&limit=20
 HTTP/1.1 200 OK
 
 {
-  data: {
-    "href": <String - the URL of the current request>,
-    "items": <An array of objects	- the requested data>,
+  "meta": {
+    "href": <String - the URL of the current request>
     "next": <String - URL to next page, null if none>,
     "prev": <String - URL to previous page, null if none>,
     "offset": <Integer - the request offset>,
     "limit": <Integer - the maximum number inf the response>,
     "total": <Integer - the total of number of items to return>
+  }
+  data: {
+     // An array of objects - the requested data 
   }
 }
 ```
@@ -85,20 +95,57 @@ GET /api/v1/subject_of_interests?offset=1000&limit=20
 HTTP/1.1 404 Not Found
 
 {
-  "error": "Page not found",
-  "code": <Custom code>,
-  "timestamp": 1470904557245
+  "error" {
+    "mesasge": "Page not found",
+    "code": <Custom code>,
+    "timestamp": 1470904557245
+  }
 }
 
 ```
 
-## Requesting a single resource 
+## CRUD a single resource 
+
+### Create a resource
+
+
+```javascript
+POST /api/v1/subject_of_interests
+
+// Success
+HTTP/1.1 201 Created
+{
+  "data": {
+    "id": <UUID>
+    ...
+  }
+}  
+
+// Error
+HTTP/1.1 422 Unprocesable Entity
+"error": {
+    "message": "Validation Failed",
+    "code": <Custom code>,
+    "details": [
+      {
+        "resource": "SubjectOfInterest",
+        "field": "description",
+        "violation": "size.toolarge"
+      },
+    ...
+    ],
+    "timestamp": 1470904557245
+}
+  
+```
+
+## Read a resource
 
 ```javascript
 GET /api/v1/subject_of_interests/:id
 
+// Success
 HTTP/1.1 200 OK
-
 {
   data: {
     "id" <UUID>,
@@ -106,7 +153,59 @@ HTTP/1.1 200 OK
   }
 }
 
+// Error
+HTTP/1.1 404 Not Found
+{
+  "error": {
+    "message": "Resource not found",
+    "code": <Custom code>,
+    "timestamp": 1470904557245
+  }
+}
+
 ```
+
+### Update a resource entirely
+
+```javascript
+PUT /api/v1/subject_of_interests/:id
+
+// Success
+HTTP/1.1 200 Created
+{
+  "data": {
+    "id": <UUID>
+    ...
+  }
+}  
+
+// Error
+HTTP/1.1 422 Unprocesable Entity
+"error": {
+    "message": "Validation Failed",
+    "code": <Custom code>,
+    "details": [
+      {
+        "resource": "SubjectOfInterest",
+        "field": "description",
+        "violation": "size.toolarge"
+      },
+    ...
+    ],
+    "timestamp": 1470904557245
+}
+
+// Or error
+HTTP/1.1 404 Not Found
+{
+  "error": {
+    "message": "Resource not found",
+    "code": <Custom code>,
+    "timestamp": 1470904557245
+  }
+}
+```
+
 
 
 
