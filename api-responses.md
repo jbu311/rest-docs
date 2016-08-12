@@ -73,7 +73,7 @@ HTTP/1.1 200 OK
     "next": <String - URL to next page, null if none>,
     "prev": <String - URL to previous page, null if none>,
     "page": <Integer - the current page>,
-    "page_size": <Integer - the number of items in page>,
+    "pageSize": <Integer - the number of items in page>,
     "total": <Integer - the total of number of items to return>
   }
   "data": {
