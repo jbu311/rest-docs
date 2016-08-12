@@ -64,7 +64,7 @@ HTTP/1.1 401 Unauthorized
 ## Pagination
 
 ```javascript
-GET /api/v1/subject_of_interests?offset=0&limit=20
+GET /api/v1/subject_of_interests?page=0&page_size=20
 
 HTTP/1.1 200 OK
 {
