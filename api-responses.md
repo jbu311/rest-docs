@@ -62,9 +62,10 @@ HTTP/1.1 401 Unauthorized
 ```
 
 ## Pagination
+The parameter page starts at 1.
 
 ```javascript
-GET /api/v1/subject_of_interests?page=0&page_size=20
+GET /api/v1/subject_of_interests?page=1&page_size=20
 
 HTTP/1.1 200 OK
 {
