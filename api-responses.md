@@ -86,7 +86,7 @@ HTTP/1.1 200 OK
 ### Requesting a non-existing page
 
 ```javascript
-GET /api/v1/subject_of_interests?offset=1000&limit=20
+GET /api/v1/subject_of_interests?offset=?page=1000&page_size=20
 
 HTTP/1.1 404 Not Found
 {
